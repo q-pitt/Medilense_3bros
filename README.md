@@ -1,2 +1,2 @@
-# Insurlense
-AI Insurance Analyzer
+# Medilense
+AI Medicine prescription Analyzer
