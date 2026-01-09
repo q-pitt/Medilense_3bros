@@ -61,8 +61,8 @@ def get_kfda_info(drug_name):
     }
 
     try:
-        # 심사위원 및 사용자 대기 시간을 고려해 timeout 5초 설정
-        response = requests.get(url, params=params, timeout=5)
+        # timeout 15초 설정
+        response = requests.get(url, params=params, timeout=15)
         if response.status_code == 200:
             data = response.json()
             items = data.get('body', {}).get('items', [])

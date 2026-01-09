@@ -135,11 +135,10 @@ with st.expander("🔍 등록된 모든 약 상세 정보 확인하기", expande
 st.divider()
 
 # 5. 하단: 달력 & 체크리스트
-col_left, col_right = st.columns([1.2, 1], gap="large") # 달력 쪽을 살짝 더 넓게 조정
+col_left, col_right = st.columns([1.2, 1], gap="large") 
 
 with col_left:
     st.subheader("🗓️ 복약 스케줄")
-    # [최적화] 고정된 key 사용으로 리렌더링 부하 감소
     state = calendar(events=calendar_events, options={"height": 450}, key="fixed_medilens_calendar")
 
 with col_right:
@@ -151,7 +150,6 @@ with col_right:
         view_date = today
 
     st.subheader(f"📋 {view_date.strftime('%m월 %d일')} 체크리스트")
-    
     active_drugs = [d for d in st.session_state.medicines if d['start_date'] <= view_date <= (d['start_date'] + datetime.timedelta(days=int(d['days'])-1))]
     
     for drug in active_drugs:
